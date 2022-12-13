@@ -1,0 +1,30 @@
+body {
+  font-family: sans-serif;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  color: #00b8d4;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+a {
+  color: #00b8d4;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0052cc;
+}
