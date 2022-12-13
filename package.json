@@ -1,0 +1,14 @@
+{
+  "name": "small-stories",
+  "version": "1.0.0",
+  "description": "Small stories written by ChatGPT and converted into html webpages. All files are written by ChatGPT",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "MChrisGM_ChatGPT",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
