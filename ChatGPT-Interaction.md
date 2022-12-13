@@ -341,6 +341,51 @@ This is just a basic example of a Markdown template that you can use to copy and
 
 ## Question
 
+add a button in the dynamic menu.html page to switch to dark mode
+
+## Answer
+
+Replace the code that generates the HTML for the menu.html page with the following code:
+
+```js
+// Generate the HTML for the menu page
+const style = fs.readFileSync('public/style.css', 'utf8');
+const menuHtml = `
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title>Story Menu</title>
+    <style>
+      ${style}
+      body {
+        background-color: white;
+        color: black;
+      }
+      .dark-mode {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="dark-mode-button">Dark Mode</button>
+    <h1>Story Menu</h1>
+    <ul>
+      ${htmlFiles.map((file) => `<li><a href="/${file}">${file}</a></li>`).join('')}
+    </ul>
+    <script>
+      const darkModeButton = document.getElementById('dark-mode-button');
+      darkModeButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+      });
+    </script>
+  </body>
+  </html>
+`;
+```
+
+## Question
+
 
 
 ## Answer

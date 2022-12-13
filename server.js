@@ -22,22 +22,40 @@ htmlFiles.forEach((file) => {
 // Serve the menu page
 app.get('/menu.html', (req, res) => {
   // Generate the HTML for the menu page
-  const style = fs.readFileSync('public/style.css', 'utf8');
-  const menuHtml = `
+const style = fs.readFileSync('public/style.css', 'utf8');
+const menuHtml = `
   <!DOCTYPE html>
   <html>
   <head>
     <title>Story Menu</title>
-    <style>${style}</style>
+    <style>
+      ${style}
+      body {
+        background-color: white;
+        color: black;
+      }
+      .dark-mode {
+        background-color: black;
+        color: white;
+      }
+    </style>
   </head>
   <body>
+    <button id="dark-mode-button">Dark Mode</button>
     <h1>Story Menu</h1>
     <ul>
       ${htmlFiles.map((file) => `<li><a href="/${file}">${file}</a></li>`).join('')}
     </ul>
+    <script>
+      const darkModeButton = document.getElementById('dark-mode-button');
+      darkModeButton.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+      });
+    </script>
   </body>
   </html>
 `;
+
 
   // Send the menu HTML to the client
   res.send(menuHtml);
